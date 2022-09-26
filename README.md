@@ -1,6 +1,11 @@
 ## What is this?
 This is a code generator that builds a light weight Data Access Layer (DAL) to do CRUD operation on SQL server. 
 
+<p align="center">
+<img src="https://github.com/BSarmady/DALGenerator/blob/main/dalgenerator.png" width="320">
+</p>
+
+
 ## Why it was created?
 Many years ago I noticed most of customer bug reports were due to errors caused by database operations, such as a missing column or parameter, passing a string to a numeric parameter or change in database structure that was not implemented in the UI application.
 
