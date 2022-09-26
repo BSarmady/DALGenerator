@@ -1,5 +1,5 @@
 ## What is this?
-This is a code generator that builds a light weight Data Access Layer (DAL) to do CRUD operation on SQL server. 
+This is a code generator that builds a light weight Data Access Layer (DAL) to do CRUD operation and also creates an C# interface for calling SQL server stored procedures. 
 
 <p align="center">
 <img src="https://github.com/BSarmady/DALGenerator/blob/main/dalgenerator.png" width="320">
@@ -160,3 +160,4 @@ Following features are not supported in this free version.
 1. This free version uses SQL type variables (`SqlString`, `SqlInt32` ...) and nullable variables are not supported (String?,  Int? ...). to pass null to parameters, you can use SqlString.Null, SqlInt32.Null, etc.
 1. Only first recordset will be returned from each procedure, multi recordset procedures will also return `DataTable` (no `Dataset`).
 1. Transactions are not supported.
+1. Only Microsoft SQL Server is supported (There are versions for other databases and other languages too).
