@@ -365,7 +365,7 @@ namespace DALGenerator {
             File.WriteAllText(file_name, sb.ToString().Replace(CRLF + CRLF + CRLF, CRLF + CRLF));
             #endregion
 
-            return file_name;
+            return file_name.Replace(output_folder, "");
         }
         #endregion
 
@@ -939,7 +939,7 @@ namespace DALGenerator {
             #endregion
 
             #region Save class to file
-            string file_name = output_folder + "DAL\\" + class_def.name_space + "\\" + class_def.class_name + ".cs";
+            string file_name = output_folder + ("DAL\\" + class_def.name_space).AddTrailingBackSlashes() + class_def.class_name + ".cs";
             string Folder = Path.GetDirectoryName(file_name);
             if (!Directory.Exists(Folder)) {
                 Directory.CreateDirectory(Folder);
