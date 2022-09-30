@@ -1,0 +1,1 @@
+Placeholder for Generated DAL project created by build_test.bat file
