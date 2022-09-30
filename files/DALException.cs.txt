@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace %%NAMESPACE%% {
+
+    public class DALException: Exception {
+
+        public DALException() : base() { }
+        public DALException(string message) : base(message) { }
+        public DALException(string message, Exception innerException) : base(message, innerException) { }
+        public DALException(string message, Exception innerException, Dictionary<string, string> Data)
+            : base(message, innerException) {
+            foreach (KeyValuePair<string, string> data in Data) {
+                this.Data.Add(data.Key, data.Value);
+            }
+        }
+
+    }
+
+}

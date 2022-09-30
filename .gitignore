@@ -1,0 +1,11 @@
+bin
+obj
+*.exe
+*.suo
+*.user
+*.dll
+*.pdb
+.git
+.vs
+*.log
+*.log.doc

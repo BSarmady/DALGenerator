@@ -1,0 +1,47 @@
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace %%NAMESPACE%% {
+
+    public class DALBase: IDisposable {
+
+        protected SqlConnection dbConnection;
+
+        #region public DALBase
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="DbConnection"></param>
+        public DALBase(SqlConnection DbConnection) {
+            this.dbConnection = DbConnection;
+        }
+        #endregion
+
+        #region protected SqlCommand PrepareCommand
+        /// <summary>
+        /// Prepares Stored Procedure and derives its parameters and returns it
+        /// </summary>
+        /// <param name="ProcedureName">Stored Procedure name to run</param>
+        /// <returns>On Success a SqlCommand, On Fail Exception</returns>
+        protected SqlCommand PrepareCommand(string ProcedureName) {
+            try {
+                SqlCommand command = new SqlCommand(ProcedureName, dbConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                if (dbConnection.State != ConnectionState.Open)
+                    dbConnection.Open();
+                return command;
+            } catch (Exception ex) {
+                throw new DALException("Exception occured while accessing database",
+                    new Exception("Executing " + ProcedureName + " procedure throw exception", ex)
+                );
+            }
+        }
+        #endregion
+
+        #region public void Dispose()
+        public void Dispose() { }
+        #endregion
+
+    }
+}

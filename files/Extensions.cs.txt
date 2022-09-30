@@ -1,0 +1,140 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlTypes;
+
+namespace %%NAMESPACE%% {
+
+    internal static class Extensions {
+
+        #region internal static Int32 ToInt32(...)
+        internal static Int32 ToInt32(this object obj, Int32 Default = 0) {
+            try {
+                return Convert.ToInt32(obj);
+            } catch {
+                return Default;
+            }
+        }
+        #endregion
+
+        #region internal static SqlByte ToSqlByte(...)
+        internal static SqlByte ToSqlByte(this object obj, byte defaultValue = 0) {
+            try {
+                return obj == DBNull.Value ? SqlByte.Null : Convert.ToByte(obj);
+            } catch {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region internal static SqlInt16 ToSqlInt16(...)
+        internal static SqlInt16 ToSqlInt16(this object obj, Int16 defaultValue = 0) {
+            try {
+                return obj == DBNull.Value ? SqlInt16.Null : Convert.ToInt16(obj);
+            } catch {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region internal static SqlInt32 ToSqlInt32(...)
+        internal static SqlInt32 ToSqlInt32(this object obj, Int32 defaultValue = 0) {
+            try {
+                return obj == DBNull.Value ? SqlInt32.Null : Convert.ToInt32(obj);
+            } catch {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region internal static SqlInt64 ToSqlInt64(...)
+        internal static SqlInt64 ToSqlInt64(this object obj, Int64 defaultValue = 0) {
+            try {
+                return obj == DBNull.Value ? SqlInt64.Null : Convert.ToInt64(obj);
+            } catch {
+                return defaultValue;
+            }
+        }
+        #endregion
+
+        #region internal static SqlSingle ToSqlSingle(...)
+        internal static SqlSingle ToSqlSingle(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlSingle.Null : Convert.ToSingle(obj);
+            } catch {
+                return SqlSingle.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlDecimal ToSqlDecimal(...)
+        internal static SqlDecimal ToSqlDecimal(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlDecimal.Null : Convert.ToDecimal(obj);
+            } catch {
+                return SqlDecimal.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlMoney ToSqlMoney(...)
+        internal static SqlMoney ToSqlMoney(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlMoney.Null : Convert.ToDecimal(obj);
+            } catch {
+                return SqlMoney.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlBoolean ToSqlBoolean(...)
+        internal static SqlBoolean ToSqlBoolean(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlBoolean.Null : Convert.ToBoolean(obj);
+            } catch {
+                return SqlBoolean.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlDateTime ToSqlDateTime(...)
+        internal static SqlDateTime ToSqlDateTime(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlDateTime.Null : Convert.ToDateTime(obj);
+            } catch {
+                return SqlDateTime.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlGuid ToSqlGuid(...)
+        internal static SqlGuid ToSqlGuid(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlGuid.Null : Guid.Parse(obj.ToString());
+            } catch {
+                return SqlGuid.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlBinary ToSqlBinary(...)
+        internal static SqlBinary ToSqlBinary(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlBinary.Null : (byte[]) obj;
+            } catch {
+                return SqlBinary.Null;
+            }
+        }
+        #endregion
+
+        #region internal static SqlString ToSqlString(...)
+        internal static SqlString ToSqlString(this object obj) {
+            try {
+                return obj == DBNull.Value ? SqlString.Null : obj.ToString();
+            } catch {
+                return SqlString.Null;
+            }
+       }
+        #endregion
+
+    }
+}
