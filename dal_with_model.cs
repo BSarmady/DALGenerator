@@ -874,7 +874,7 @@ namespace DALGenerator {
                     break;
                 default:
                     #region Method throw exception while running DeriveParameters (means is not supported)
-                    sb.AppendLine("            throw new Exception(\"" + output_type.Replace(CRLF, "").Replace("\"", "\\\"") + "\");");
+                    sb.AppendLine("            throw new DALException(\"" + output_type.Replace(CRLF, "").Replace("\"", "\\\"") + "\");");
                     #endregion
                     break;
             }
