@@ -97,7 +97,7 @@ As you might noticed with structures you will have to pass a model to `Add`, `Ed
 
 ## How do I use it
 
-To create a meaningful DAL following few rules should be followed. 
+To create a meaningful DAL few rules should be followed:
 1. Name your procedures prefixed with table name followed by an underscore and then method name. For example stored procedure that adds a record to table entry should be named Entry_Add which then generated code will a method called Add in class named Entry.
 1. If application cannot find a suitable table name to assign procedure to it, it will create a class using schema name of procedure as class name prefixed with underscore. For example if a procedure is called sp_ambiguous_procedure then a method named sp_ambiguous_procedure will be created within _dbo class (default schema is dbo).
 1. Schema name of table, procedure will be used as part of namespace of class. For example if Entry table is in Finance schema, it will be created as Entry class under namespace namespace_prefix.Entry. 
